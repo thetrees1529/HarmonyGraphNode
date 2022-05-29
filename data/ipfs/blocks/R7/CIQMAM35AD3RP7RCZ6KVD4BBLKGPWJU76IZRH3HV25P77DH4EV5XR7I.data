@@ -1,0 +1,74 @@
+
+³«dataSources:
+  - kind: ethereum
+    mapping:
+      abis:
+        - file:
+            /: /ipfs/QmZ92NnxU1cXyXRojBEkaiiMrLH7HSBF3KnrwmtPMoHWDC
+          name: Listings
+      apiVersion: 0.0.5
+      entities:
+        - AuctionCancelled
+        - AuctionCompleted
+        - AuctionCreated
+        - BidOn
+        - Cancelled
+        - CollectionApproved
+        - CollectionUnapproved
+        - FeesTaken
+        - FeesWithdrawn
+        - Listed
+        - OfferAccepted
+        - Offered
+        - PriceEdited
+        - Sold
+      eventHandlers:
+        - event: AuctionCancelled(indexed uint256)
+          handler: handleAuctionCancelled
+        - event: 'AuctionCompleted(indexed uint256,indexed address,uint256)'
+          handler: handleAuctionCompleted
+        - event: >-
+            AuctionCreated(indexed uint256,indexed
+            address,(uint256,uint256,uint256))
+          handler: handleAuctionCreated
+        - event: 'BidOn(indexed uint256,indexed address,uint256)'
+          handler: handleBidOn
+        - event: Cancelled(indexed uint256)
+          handler: handleCancelled
+        - event: CollectionApproved(indexed address)
+          handler: handleCollectionApproved
+        - event: CollectionUnapproved(indexed address)
+          handler: handleCollectionUnapproved
+        - event: FeesTaken(uint256)
+          handler: handleFeesTaken
+        - event: 'FeesWithdrawn(address,uint256)'
+          handler: handleFeesWithdrawn
+        - event: 'Listed(indexed uint256,indexed address,uint256,uint256)'
+          handler: handleListed
+        - event: >-
+            OfferAccepted(indexed uint256,indexed address,indexed
+            address,(uint256,(address,uint256)[],uint256))
+          handler: handleOfferAccepted
+        - event: >-
+            Offered(indexed uint256,indexed
+            address,(uint256,(address,uint256)[],uint256))
+          handler: handleOffered
+        - event: 'PriceEdited(indexed uint256,uint256)'
+          handler: handlePriceEdited
+        - event: 'Sold(indexed uint256,indexed address,uint256)'
+          handler: handleSold
+      file:
+        /: /ipfs/QmUKjWUkPCyyaofdg7tzfUwq2qi5EoWnAwkeACUpe6Vsdd
+      kind: ethereum/events
+      language: wasm/assemblyscript
+    name: Listings
+    network: mainnet
+    source:
+      abi: Listings
+      address: '0xc58fc39a65d0E35Cf40A7776a80a7CEdB9203705'
+      startBlock: 27089309
+schema:
+  file:
+    /: /ipfs/QmeuZXqBjG7aLis4RHjuTRWRqgpQUHzZ9aAgpKSK4hh8dJ
+specVersion: 0.0.4
+«

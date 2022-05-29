@@ -1,0 +1,85 @@
+
+±©type Token @entity {
+  id: ID!
+}
+
+type ListingCount @entity {
+  id: ID!
+  token: Token!
+  count: Int!
+} 
+
+type AuctionCount @entity {
+  id: ID!
+  token: Token!
+  count: Int!
+} 
+
+type Auction @entity {
+  id: ID!
+  seller: User!
+  token: Token!
+  start: BigInt!
+  end: BigInt!
+  cancelled: Boolean!
+  startPrice: BigInt!
+  bids: [Bid!]
+  winningBid: Bid
+}
+
+type Bid @entity {
+  id: ID!
+  bidder: User!
+  bid: BigInt!
+}
+
+type Offer @entity {
+  id: ID!
+  token: Token!
+  buyer: User!
+  offer: BigInt
+  nfts: [Nft!]
+  acceptedBy: User
+  removed: Boolean!
+  expiresAt: BigInt!
+}
+
+type User @entity {
+  id: ID!
+}
+
+type OfferCount @entity {
+  id: ID!
+  buyer: User!
+  token: Token!
+  offerCount: Int!
+}
+
+type BidCount @entity {
+  id: ID!
+  bidder: User!
+  token: Token!
+  bidCount: Int!
+}
+
+type Nft @entity {
+  id: ID!
+  collectionAddress: Bytes!
+  tokenId: BigInt!
+}
+
+type Listing @entity {
+  id: ID!
+  token: Token!
+  seller: User!
+  price: BigInt!
+  expiresAt: BigInt!
+  soldTo: Bytes
+  removed: Boolean!
+}
+
+type Miscellaneous @entity {
+  id: ID!
+  feesTaken: BigInt!
+}
+©
